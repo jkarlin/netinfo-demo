@@ -12,4 +12,23 @@
 
 <body>
 
+<script>
+
+var updateConnection = function() {
+	document.getElementById("connection").innerHTML = navigator.connection.type;
+	document.getElementById("downlinkMax").innerHTML = navigator.connection.downlinkMax;
+}
+
+if (!navigator.connection) {
+	document.write("<p>NetInfo not supported on this browser</p>");
+} else {
+	document.write("<p>Your connection type: <span id=connection></span></p>");
+	document.write("<p>Your connection downlinkMax: <span id=downlinkMax></span></p>");
+
+	navigator.connection.addEventListener("change", updateConnection);
+	updateConnection();
+}
+
+</script>
+
 </body>
