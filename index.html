@@ -20,7 +20,11 @@ var updateConnection = function() {
 }
 
 if (!navigator.connection) {
-	document.write("<p>NetInfo not supported on this browser</p>");
+	document.write("<p>NetInfo is not supported on this browser</p>");
+	document.write("<p>If you're using Chrome, perhaps you need to enable experimental web platform features in chrome://flags</p>");
+} else if (!navigator.connection.downlinkMax) {
+	document.write("<p>downlinkMax attribute is not supported on this browser</p>");
+	document.write("<p>If you're using Chrome, perhaps you need to enable experimental web platform features in chrome://flags</p>");
 } else {
 	document.write("<p>Your connection type: <span id=connection></span></p>");
 	document.write("<p>Your connection downlinkMax: <span id=downlinkMax></span></p>");
